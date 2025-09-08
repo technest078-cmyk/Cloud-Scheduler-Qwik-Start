@@ -1,4 +1,4 @@
-###  🎯Lab Link: [Cloud Scheduler: Qwik Start](https://www.cloudskillsboost.google/games/6482/labs/40742))
+###  🎯Lab Link: [Cloud Scheduler: Qwik Start](https://www.cloudskillsboost.google/games/6482/labs/40742)
 
 
 ### 🔒Lab Solution :
