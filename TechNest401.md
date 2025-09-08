@@ -1,25 +1,20 @@
-###  🎯Lab Link: [Cloud Scheduler: Qwik Start](https://www.cloudskillsboost.google/games/6482/labs/40742)
+### 💡 Lab Link: [Cloud Scheduler: Qwik Start - GSP401](https://www.cloudskillsboost.google/focuses/3556?parent=catalog)
 
+### 🚀 Lab Solution [Watch Here](https://youtu.be/OpZem6qjmxE)
 
-### 🔒Lab Solution :
 ---
 
-## 🚀 Quick Launch
-1.Open Google Cloud Shell
+### ⚠️ Disclaimer
+- **This script and guide are provided for educational purposes to help you understand the lab services and boost your career. Before using the script, please open and review it to familiarize yourself with Google Cloud services. Ensure that you follow 'Qwiklabs' terms of service and YouTube’s community guidelines. The goal is to enhance your learning experience, not to bypass it.**
 
-2.Copy & run this command:
+### © Credit
+- **DM for credit or removal request (no copyright intended). © All rights and credits for the original content belong to Google Cloud [Google Cloud Skill Boost website](https://www.cloudskillsboost.google/)** 🙏
+
+---
+
+### 🚨 Copy and run the below commands in Cloud Shell:
 
 ```bash
 curl -LO https://raw.githubusercontent.com/TechNest078/Cloud-Scheduler-Qwik-Start/main/TechNest401.sh
 chmod +x TechNest401.sh
 ./TechNest401.sh
-```
----
-
-### 🏆Mission completed successfully! 
-🔥Your consistency is your superpower — every script run is a step toward mastery.🌟  
-
-   Proud moment, Cloud Builder! 🎊  
----
-
-✨ Keep experimenting. Keep learning. Keep conquering labs!  
