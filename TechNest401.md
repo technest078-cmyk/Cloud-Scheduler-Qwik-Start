@@ -15,6 +15,6 @@
 ### 🚨 Copy and run the below commands in Cloud Shell:
 
 ```bash
-curl -LO https://raw.githubusercontent.com/TechNest078/Cloud-Scheduler-Qwik-Start/main/TechNest401.sh
+curl -LO https://raw.githubusercontent.com/technest078-cmyk/Cloud-Scheduler-Qwik-Start/main/TechNest401.sh
 chmod +x TechNest401.sh
 ./TechNest401.sh
