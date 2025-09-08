@@ -14,11 +14,18 @@ echo "⚡ Starting TechNest Cloud Scheduler Setup..."
 echo ""
 
 # ───────────────────────────────────────────────
-# Set Project ID
+# Set Project ID (metadata server fallback)
 # ───────────────────────────────────────────────
-echo ">>> Setting Project ID..."
-export PROJECT_ID=$(gcloud config get-value project)
-gcloud config set project $PROJECT_ID
+echo ">>> Fetching Project ID..."
+PROJECT_ID=$(gcloud config get-value project 2>/dev/null)
+
+if [[ -z "$PROJECT_ID" ]]; then
+    PROJECT_ID=$(curl -s -H "Metadata-Flavor: Google" \
+        http://metadata.google.internal/computeMetadata/v1/project/project-id)
+    gcloud config set project $PROJECT_ID
+fi
+
+echo "✅ Using Project: $PROJECT_ID"
 
 # ───────────────────────────────────────────────
 # Enable APIs
