@@ -1,17 +1,4 @@
 #!/bin/bash
-# ==========================================================
-#        🚀 TechNest - Cloud Scheduler Automation 🚀
-# ==========================================================
-# This script will:
-# 1. Authenticate gcloud user
-# 2. Enable Cloud Scheduler API
-# 3. Create Pub/Sub topic
-# 4. Create Pub/Sub subscription
-#
-# Author : TechNest
-# Note   : Run inside Google Cloud Shell
-# ==========================================================
-
 banner() {
 echo -e "${MAGENTA}${BOLD}"
 cat << "EOF"
@@ -42,7 +29,10 @@ gcloud pubsub topics create cron-topic
 echo "🔹 Creating Pub/Sub subscription: cron-sub"
 gcloud pubsub subscriptions create cron-sub --topic cron-topic
 
-echo "✅ Setup completed successfully!"
-echo "=============================================="
-echo "     🚀 TechNest | Cloud Scheduler Ready! 🚀"
-echo "=============================================="
+# ===================== END =====================
+banner
+echo "${MAGENTA}${BOLD}🎉 Lab Completed at $(timestamp)!${RESET}"
+echo
+echo "${YELLOW}${BOLD}💡 SUBSCRIBE TO TECHNEST for more hacks & labs:${RESET}"
+echo "${GREEN}${UNDERLINE}👉 https://www.youtube.com/@TechNest_078${RESET}"
+echo
