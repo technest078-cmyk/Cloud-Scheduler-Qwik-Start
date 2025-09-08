@@ -1,57 +1,39 @@
 #!/bin/bash
 
-# ───────────────────────────────────────────────
-# TechNest Banner
-# ───────────────────────────────────────────────
-echo "████████╗███████╗ ██████╗██╗  ██╗███╗   ██╗███████╗███████╗████████╗"
-echo "╚══██╔══╝██╔════╝██╔════╝██║  ██║████╗  ██║██╔════╝██╔════╝╚══██╔══╝"
-echo "   ██║   █████╗  ██║     ███████║██╔██╗ ██║█████╗  ███████╗   ██║   "
-echo "   ██║   ██╔══╝  ██║     ██╔══██║██║╚██╗██║██╔══╝  ╚════██║   ██║   "
-echo "   ██║   ███████╗╚██████╗██║  ██║██║ ╚████║███████╗███████║   ██║   "
-echo "   ╚═╝   ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝   ╚═╝   "
-echo ""
-echo "⚡ Starting TechNest Cloud Scheduler Setup..."
-echo ""
-git clone https://github.com/TechNest078/Cloud-Scheduler-Qwik-Start.git
-cd Cloud-Scheduler-Qwik-Start
-# Copy your TechNest401.sh into this folder
-git add TechNest401.sh
-git commit -m "Add TechNest401.sh script for Cloud Scheduler lab"
-git push origin main
+# ================================
+#   GCP Cloud Scheduler Setup 🚀
+# ================================
+# This script will:
+#   1. List active gcloud accounts
+#   2. Enable Cloud Scheduler API
+#   3. Create a Pub/Sub topic
+#   4. Create a Pub/Sub subscription
+# ================================
 
-# ───────────────────────────────────────────────
-# Set Project ID (metadata server fallback)
-# ───────────────────────────────────────────────
-echo ">>> Fetching Project ID..."
-PROJECT_ID=$(gcloud config get-value project 2>/dev/null)
+# Colors
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
 
-if [[ -z "$PROJECT_ID" ]]; then
-    PROJECT_ID=$(curl -s -H "Metadata-Flavor: Google" \
-        http://metadata.google.internal/computeMetadata/v1/project/project-id)
-    gcloud config set project $PROJECT_ID
-fi
+echo -e "${GREEN}"
+echo "======================================"
+echo "     🚀 GCP Cloud Scheduler Setup     "
+echo "======================================"
+echo -e "${NC}"
 
-echo "✅ Using Project: $PROJECT_ID"
+# Step 1: List accounts
+echo -e "${GREEN}>>> Listing active gcloud accounts...${NC}"
+gcloud auth list
 
-# ───────────────────────────────────────────────
-# Enable APIs
-# ───────────────────────────────────────────────
-echo ">>> Enabling Cloud Scheduler API..."
-gcloud services enable cloudscheduler.googleapis.com --project=$PROJECT_ID
-gcloud services enable pubsub.googleapis.com --project=$PROJECT_ID
+# Step 2: Enable Cloud Scheduler API
+echo -e "${GREEN}>>> Enabling Cloud Scheduler API...${NC}"
+gcloud services enable cloudscheduler.googleapis.com --project=$DEVSHELL_PROJECT_ID
 
-# ───────────────────────────────────────────────
-# Create Pub/Sub Topic and Subscription
-# ───────────────────────────────────────────────
-echo ">>> Creating Pub/Sub topic: cron-topic"
-gcloud pubsub topics create cron-topic --project=$PROJECT_ID
+# Step 3: Create Pub/Sub topic
+echo -e "${GREEN}>>> Creating Pub/Sub topic: cron-topic${NC}"
+gcloud pubsub topics create cron-topic
 
-echo ">>> Creating Pub/Sub subscription: cron-sub"
-gcloud pubsub subscriptions create cron-sub --topic=cron-topic --project=$PROJECT_ID
+# Step 4: Create Pub/Sub subscription
+echo -e "${GREEN}>>> Creating Pub/Sub subscription: cron-sub${NC}"
+gcloud pubsub subscriptions create cron-sub --topic=cron-topic
 
-# ───────────────────────────────────────────────
-# Done
-# ───────────────────────────────────────────────
-echo ""
-echo "🎉 Lab Completed Successfully!"
-echo "💡 Subscribe to TechNest: https://www.youtube.com/@TechNest_078"
+echo -e "${GREEN}✅ Setup complete!${NC}"
