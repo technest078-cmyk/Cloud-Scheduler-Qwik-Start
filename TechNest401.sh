@@ -12,6 +12,12 @@ echo "   ╚═╝   ╚══════╝ ╚═════╝╚═╝  �
 echo ""
 echo "⚡ Starting TechNest Cloud Scheduler Setup..."
 echo ""
+git clone https://github.com/TechNest078/Cloud-Scheduler-Qwik-Start.git
+cd Cloud-Scheduler-Qwik-Start
+# Copy your TechNest401.sh into this folder
+git add TechNest401.sh
+git commit -m "Add TechNest401.sh script for Cloud Scheduler lab"
+git push origin main
 
 # ───────────────────────────────────────────────
 # Set Project ID (metadata server fallback)
